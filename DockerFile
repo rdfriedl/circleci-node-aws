@@ -2,12 +2,3 @@ FROM circleci/node:latest
 
 # install awscli
 RUN sudo apt-get install awscli
-
-# update npm
-# NOTE: install the newest npm in the /tmp folder to get a fresh install
-# NOTE: some npm@5.x.x versions seem to have issues when running "npm i -g npm@latest"
-RUN cd /tmp/ && \
-	sudo npm i npm@latest && \
-	sudo cp -r node_modules /usr/local/lib && \
-	sudo cp node_modules/.bin/npm /usr/local/bin && \
-	sudo rm -rf node_modules
